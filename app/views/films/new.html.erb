@@ -1,3 +1,12 @@
+<% if flash.any? %>
+ <% flash.each do |name, msg| %>
+    <div class="alert alert-<%= name %> bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold"><%= name.capitalize %>:</strong>
+      <span class="block sm:inline"><%= msg %></span>
+    </div>
+ <% end %>
+<% end %>
+
 <div class="flex flex-col justify-between items-center">
   <h1 class="text-3xl font-bold">New Film</h1>
   <%= form_for Film.new do |form| %>

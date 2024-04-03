@@ -20,8 +20,12 @@ class FilmsController < ApplicationController
 
   def create
     @film = Film.new(params.require(:film).permit(:title, :release_year, :synopsis, :country_of_origin, :duration, :released, :director_id, :genre_id, :poster))
-    @film.save
-    redirect_to films_path
+    if @film.save
+      redirect_to films_path
+    else
+      flash[:notice] = "All parameters must be filled in!"
+      redirect_to new_film_path
+    end
   end
 
   def edit
