@@ -1,0 +1,23 @@
+<div class="flex flex-col gap-8">
+  <h1 class="text-5xl font-bold"><%= @film.title %></h1>
+  <div class="flex flex-col sm:flex-row">
+    <% if @film.poster.attached? %>
+      <%= image_tag url_for(@film.poster), alt: @film.title, class: "max-w-[300px] max-h-[360px]" %>
+    <% else %>
+      <img src="/images/no-poster-available.jpg" alt="No poster available" class="max-w-[300px] max-h-[360px]">
+    <% end %>
+    <ul class="flex flex-col m-4 gap-2 text-xl">
+      <li class="text-3xl"><%= @film.release_year %></li>
+      <li class="max-w-[450px] break-words"><%= @film.synopsis %></li>
+      <li><%= @film.country_of_origin %></li>
+      <li><%= @film.duration %> min</li>
+      <li><%= @film.director.name %></li>
+      <li><%= @film.genre.name %></li>
+    </ul>
+  </div>
+  <div class="flex flex-row gap-4">
+    <%= link_to 'Edit', edit_film_path(@film), class: "text-red-500 text-lg bg-[#1B141D] p-2 rounded-xl" %>
+    <%= button_to 'Delete', @film, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "text-red-500 text-lg bg-[#1B141D] p-2 rounded-xl" %>
+    <%= link_to 'Back', films_path, class: "text-black bg-gray-300 p-2 rounded-xl" %>
+  </div>
+</div>

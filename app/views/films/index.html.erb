@@ -1,0 +1,30 @@
+<div class="flex flex-col justify-center items-start gap-10">
+  <div class="flex flex-row gap-8">
+    <% if @filter_name.present? %>
+      <h1 class="text-3xl font-bold">Films - <%= @filter_name %></h1>
+    <% else %>
+      <h1 class="text-3xl font-bold">Films</h1>
+    <% end %>
+    <%= link_to 'Back', root_path, class: "flex justify-center items-center text-center p-2 text-black bg-gray-300 rounded-xl font-bold" %>
+  </div>
+  <div class="flex flex-col gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 bg-[#372B3A] p-4 rounded-xl">
+      <% @films.each do |film| %>
+        <ul class="flex flex-col my-4">
+          <li class="text-2xl font-bold"><%= film.title %></li>
+          <% if film.released? %>
+            <li><%= film.release_year %></li>
+          <% else %>
+            <li>Release Forecast: <%= film.release_year %></li>
+          <% end %>
+          <% if film.poster.attached? %>
+            <%= image_tag url_for(film.poster), alt: film.title, class: "max-w-[300px] max-h-[360px]" %>
+          <% else %>
+            <img src="/images/no-poster-available.jpg" alt="No poster available" class="max-w-[300px] max-h-[360px]">
+          <% end %>
+          <%= link_to 'See details', film, class: "text-center text-yellow-500 font-bold text-xl w-full uppercase bg-[#1B141D] p-4" %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

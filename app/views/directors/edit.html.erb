@@ -1,0 +1,27 @@
+<div class="flex flex-col justify-between items-center">
+  <h1 class="text-3xl font-bold">New Director</h1>
+  <%= form_for @director do |form| %>
+    <div class="flex flex-col space-y-4 text-black">
+      <div class="flex flex-col space-y-2">
+        <%= form.label :name, class: "text-white text-lg font-semibold" %>
+        <%= form.text_field :name, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :nationality, class: "text-white text-lg font-semibold" %>
+        <%= form.text_field :nationality, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :date_of_birth, class: "text-white text-lg font-semibold" %>
+        <%= form.date_field :date_of_birth, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div> 
+        <%= form.label :favorite_genre, class: "text-white text-lg font-semibold" %>
+        <%= form.collection_select :favorite_genre, Genre.all, :id, :name, { prompt: "Select a favorite genre" }, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex justify-center gap-8">
+        <%= link_to 'Back', root_path, class: "p-2 text-black bg-gray-300 rounded-md" %>
+        <%= form.submit "Create Director", class: "p-2 bg-blue-500 text-white rounded-md cursor-pointer" %>
+      </div>
+    </div>
+  <% end %>
+</div>

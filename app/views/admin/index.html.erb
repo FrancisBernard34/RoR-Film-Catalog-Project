@@ -1,0 +1,24 @@
+<div class="flex flex-col gap-4 justify-center items-center">
+  <h1 class="text-3xl font-bold uppercase">Film Catalog - Dashboard</h1>
+  <div class="bg-[#1B141D] rounded-lg p-4 w-full">
+    <h2 class="text-2xl font-bold">Filmes</h2>
+    <div class="flex gap-8">
+      <%= link_to 'Ver todos os filmes', films_path, class: "text-blue-500" %>
+      <%= link_to 'Adicionar novo filme', new_film_path, class: "text-blue-500" %>
+    </div>
+  </div>
+  <div class="bg-[#1B141D] rounded-lg p-4 w-full">
+    <h2 class="text-2xl font-bold">Gêneros</h2>
+    <div class="flex gap-8">
+      <%= link_to 'Ver todos os gêneros', genres_path, class: "text-blue-500" %>
+      <%= link_to 'Adicionar novo gênero', new_genre_path, class: "text-blue-500" %>
+    </div>
+  </div>
+  <div class="bg-[#1B141D] rounded-lg p-4 w-full">
+    <h2 class="text-2xl font-bold">Diretores</h2>
+    <div class="flex gap-8">
+      <%= link_to 'Ver todos os diretores', directors_path, class: "text-blue-500" %>
+      <%= link_to 'Adicionar novo diretor', new_director_path, class: "text-blue-500" %>
+    </div>
+  </div>
+</div>

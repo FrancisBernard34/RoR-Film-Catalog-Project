@@ -1,0 +1,16 @@
+<div class="flex flex-col gap-10">
+  <div>
+    <% @directors.each do |director| %>
+      <ul class="flex flex-col my-4">
+        <li><%= director.name %></li>
+      </ul>
+      <div class="flex flex-row gap-4">
+        <%= link_to 'Films with this director', films_path(director_id: director.id), class: "text-yellow-500 hover:text-yellow-200 bg-[#1B141D] p-2 rounded-lg" %>
+        <%= link_to "Edit information", edit_director_path(director), class: "text-yellow-500 hover:text-yellow-200 bg-[#1B141D] p-2 rounded-lg" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="flex justify-center">
+    <%= link_to 'Back', root_path, class: "p-2 text-black bg-gray-300 rounded-md" %>
+  </div>
+</div>

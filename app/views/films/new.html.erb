@@ -1,0 +1,47 @@
+<div class="flex flex-col justify-between items-center">
+  <h1 class="text-3xl font-bold">New Film</h1>
+  <%= form_for Film.new do |form| %>
+    <div class="flex flex-col space-y-4 text-black">
+      <div class="flex flex-col space-y-2">
+        <%= form.label :title, class: "text-white text-lg font-semibold" %>
+        <%= form.text_field :title, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :release_year, class: "text-white text-lg font-semibold" %>
+        <%= form.number_field :release_year, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :synopsis, class: "text-white text-lg font-semibold" %>
+        <%= form.text_area :synopsis, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :country_of_origin, class: "text-white text-lg font-semibold" %>
+        <%= form.text_field :country_of_origin, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :duration, class: "text-white text-lg font-semibold" %>
+        <%= form.number_field :duration, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :released, "Released", class: "text-white text-lg font-semibold" %>
+        <%= form.select :released, [['Yes', true], ['No', false]], {}, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :poster, "Poster Image", class: "text-white text-lg font-semibold" %>
+        <%= form.file_field :poster, class: "text-white p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :director, class: "text-white text-lg font-semibold" %>
+        <%= form.collection_select :director_id, Director.all, :id, :name, { prompt: "Select a director" }, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex flex-col space-y-2">
+        <%= form.label :genre, class: "text-white text-lg font-semibold" %>
+        <%= form.collection_select :genre_id, Genre.all, :id, :name, { prompt: "Select a genre" }, class: "p-2 border border-gray-300 rounded-md" %>
+      </div>
+      <div class="flex justify-center gap-8">
+        <%= link_to 'Back', root_path, class: "p-2 text-black bg-gray-300 rounded-md" %>
+        <%= form.submit "Create Film", class: "p-2 bg-blue-500 text-white rounded-md cursor-pointer" %>
+      </div>
+    </div>
+  <% end %>
+</div>
