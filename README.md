@@ -9,6 +9,11 @@ Após clonar o repositório, execute o seguinte comando para instalar as depend�
 ```bash
 bundle install
 ```
+## Rodando as migrations
+Antes de iniciar o servidor, rode as migrations com o comando:
+```bash
+rails db:migrate
+```
 
 ## Executando o Servidor de Desenvolvimento
 Para rodar o servidor de desenvolvimento, é recomendável utilizar o comando:
