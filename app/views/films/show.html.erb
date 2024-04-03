@@ -7,7 +7,11 @@
       <img src="/images/no-poster-available.jpg" alt="No poster available" class="max-w-[300px] max-h-[360px]">
     <% end %>
     <ul class="flex flex-col m-4 gap-2 text-xl">
-      <li class="text-3xl"><%= @film.release_year %></li>
+      <% if film.released? %>
+        <li class="text-3xl"><%= @film.release_year %></li>
+      <% else %>
+        <li class="text-3xl">Release Forecast: <%= @film.release_year %></li>
+      <% end %>
       <li class="max-w-[450px] break-words"><%= @film.synopsis %></li>
       <li><%= @film.country_of_origin %></li>
       <li><%= @film.duration %> min</li>
