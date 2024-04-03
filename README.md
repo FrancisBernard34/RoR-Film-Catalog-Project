@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Sobre o Projeto
+Este projeto não requeria o uso de uma biblioteca CSS, no entanto, optei por utilizar o **Tailwind CSS** para aprimorar a interface da aplicação.
 
-Things you may want to cover:
+## Configuração Inicial
+Após clonar o repositório, execute o seguinte comando para instalar as dependências do projeto:
 
-* Ruby version
+```bash
+bundle install
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Executando o Servidor de Desenvolvimento
+Para rodar o servidor de desenvolvimento, é recomendável utilizar o comando:
+```bash
+./bin/dev
+```
+Isso é preferível em vez de usar `rails server`, pois garante que as modificações no Tailwind CSS sejam aplicadas em tempo real.
